@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: local
+
+spring.batch.job.names: ${job.name:NONE}
+---
+spring:
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: {dburl}
+    username: {UserName}
+    password: {userPassword}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB102Dialect
+#        show_sql: true
+        format_sql: true
+
+  devtools:
+    livereload:
+      enabled: true
+---
+
+server:
+  port: 1000
